@@ -10,21 +10,21 @@ export function HeroBackground() {
     <div className="relative flex min-h-screen w-full flex-col items-start justify-start overflow-hidden">
       <BackgroundRippleEffect />
       <motion.div
-      className="mt-40 w-full flex flex-col items-center">
+      className="mt-20 md:mt-40 w-full flex flex-col items-center px-4 md:px-0">
         <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5,delay:0.5 }}
-        className="relative z-10 mx-auto flex flex-col items-center max-w-6xl text-center text-2xl font-bold text-neutral-900 md:text-4xl lg:text-7xl dark:text-neutral-100">
+        className="relative z-10 mx-auto flex flex-col items-center max-w-6xl text-center text-xl md:text-2xl font-bold text-neutral-900 md:text-4xl lg:text-7xl dark:text-neutral-100">
       
-          <p className="mt-10" > Build  <Cover className="text-red-500">AI Chatbots</Cover> in 1 Minute.</p>
+          <p className="mt-6 md:mt-10" > Build  <Cover className="text-red-500">AI Chatbots</Cover> in 1 Minute.</p>
           <span className="">Embed with One Line.</span>
         </motion.h2>
         <motion.p 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5,delay:1}}
-        className="relative z-10 mx-auto mt-4 max-w-xl text-center text-neutral-700 dark:text-neutral-500">
+        className="relative z-10 mx-auto mt-4 max-w-xl text-center  text-xs md:text-base text-neutral-700 dark:text-neutral-500 px-4 md:px-0">
         Create a fully customizable, AI-powered chatbot for your website — train it on PDFs, documents, links, or your own data.
         No coding. No complexity. Just drop in a single snippet and go live.
         </motion.p>
@@ -37,10 +37,11 @@ export function HeroBackground() {
             bg-red-500
             text-white
             font-semibold
-            text-xl
-            px-10 py-3
+            text-lg md:text-xl
+            px-6 md:px-10 py-2.5 md:py-3
             rounded-sm
-            mt-6
+            mt-7
+            z-10
             relative
             transition-all
             duration-80

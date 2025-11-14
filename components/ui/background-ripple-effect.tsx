@@ -3,14 +3,23 @@ import React, { useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const BackgroundRippleEffect = ({
-  rows = 8,
-  cols = 27,
-  cellSize = 56,
+  rows,
+  cols,
+  cellSize,
 }: {
   rows?: number;
   cols?: number;
   cellSize?: number;
-}) => {
+} = {}) => {
+  // Responsive grid parameters
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const defaultRows = isMobile ? 6 : 8;
+  const defaultCols = isMobile ? 15 : 27;
+  const defaultCellSize = isMobile ? 40 : 56;
+  
+  const finalRows = rows ?? defaultRows;
+  const finalCols = cols ?? defaultCols;
+  const finalCellSize = cellSize ?? defaultCellSize;
   const [clickedCell, setClickedCell] = useState<{
     row: number;
     col: number;
@@ -32,9 +41,9 @@ export const BackgroundRippleEffect = ({
         <DivGrid
           key={`base-${rippleKey}`}
           className="mask-radial-from-20% mask-radial-at-top opacity-600"
-          rows={rows}
-          cols={cols}
-          cellSize={cellSize}
+          rows={finalRows}
+          cols={finalCols}
+          cellSize={finalCellSize}
           borderColor="var(--cell-border-color)"
           fillColor="var(--cell-fill-color)"
           clickedCell={clickedCell}
